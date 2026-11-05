@@ -1,0 +1,64 @@
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-background > .ghost-fibers-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-background::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--hero-background-overlay);
+  content: "";
+  pointer-events: none;
+  transition: background 320ms ease;
+}
+
+:root {
+  --hero-background-overlay: linear-gradient(
+    90deg,
+    rgba(241, 238, 232, 0.42) 0%,
+    rgba(241, 238, 232, 0.24) 52%,
+    rgba(241, 238, 232, 0.4) 100%
+  );
+}
+
+:root[data-theme="dark"] {
+  --hero-background-overlay: linear-gradient(
+    90deg,
+    rgba(32, 32, 32, 0.5) 0%,
+    rgba(32, 32, 32, 0.35) 52%,
+    rgba(32, 32, 32, 0.48) 100%
+  );
+}
+
+.hero-background .ghost-fibers-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 760px) {
+  .hero-background::after {
+    background: var(--hero-mobile-overlay);
+  }
+
+  :root {
+    --hero-mobile-overlay: rgba(241, 238, 232, 0.34);
+  }
+
+  :root[data-theme="dark"] {
+    --hero-mobile-overlay: rgba(32, 32, 32, 0.48);
+  }
+}

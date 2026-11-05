@@ -1,0 +1,29 @@
+.tech-text {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+/* When letters can be dragged across a larger area, vertical touch drags must reach the letter
+   instead of scrolling the page, otherwise the browser cancels the drag. */
+.tech-text--free {
+  touch-action: none;
+}
+
+.tech-text-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Canvas that covers the drag area (e.g. the whole hero). It never captures pointer events, so the
+   rest of the page stays clickable; the text container underneath handles all pointer input. */
+.tech-text-overlay {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  pointer-events: none;
+  z-index: var(--tech-text-overlay-z, 5);
+}

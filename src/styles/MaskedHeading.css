@@ -1,0 +1,85 @@
+.masked-heading {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: stretch;
+  row-gap: 0.06em;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.masked-heading__word {
+  display: block;
+  white-space: nowrap;
+  color: #202020;
+  background-image:
+    linear-gradient(
+      112deg,
+      #823e31 0%,
+      #b65d45 15%,
+      #d79478 24%,
+      #8d493a 36%,
+      #c97b62 48%,
+      #6f382f 60%,
+      #b65d45 72%,
+      #d9a18b 84%,
+      #914737 100%
+    ),
+    radial-gradient(circle, rgba(255, 239, 195, 0.9) 0.7px, transparent 1.15px),
+    radial-gradient(circle, rgba(218, 164, 83, 0.72) 0.65px, transparent 1.1px);
+  background-repeat: no-repeat, repeat, repeat;
+  background-position: 0% 50%, 0 0, 19px 13px;
+  background-size: 220% 100%, 47px 43px, 71px 67px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: masked-heading-drift 14s ease-in-out infinite alternate;
+  filter: drop-shadow(0 3px 18px rgba(182, 93, 69, 0.09));
+}
+
+.masked-heading__word:last-child {
+  justify-self: end;
+}
+
+:root[data-theme="dark"] .masked-heading__word {
+  background-image:
+    linear-gradient(
+      112deg,
+      #a65d49 0%,
+      #e2a18a 15%,
+      #f0c1a8 24%,
+      #a85b48 36%,
+      #e7a084 48%,
+      #8c4c3e 60%,
+      #d58a70 72%,
+      #f1c3ad 84%,
+      #a95a45 100%
+    ),
+    radial-gradient(circle, rgba(255, 239, 195, 0.9) 0.7px, transparent 1.15px),
+    radial-gradient(circle, rgba(218, 164, 83, 0.72) 0.65px, transparent 1.1px);
+  filter: drop-shadow(0 3px 20px rgba(var(--color-accent-rgb), 0.2));
+}
+
+@keyframes masked-heading-drift {
+  from {
+    background-position: 0% 50%, 0 0, 19px 13px;
+  }
+
+  to {
+    background-position: 100% 50%, 28px 21px, -12px 34px;
+  }
+}
+
+@supports not (-webkit-background-clip: text) {
+  .masked-heading__word {
+    color: var(--color-text);
+    background: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masked-heading__word {
+    animation: none;
+  }
+}

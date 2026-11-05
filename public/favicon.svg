@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="18" fill="#F1EEE8"/>
+  <circle cx="32" cy="32" r="26.5" fill="none" stroke="#B65D45" stroke-width="2"/>
+  <text
+    x="32"
+    y="40"
+    fill="#202020"
+    font-family="Arial Black, Arial, sans-serif"
+    font-size="23"
+    font-weight="900"
+    letter-spacing="-2.5"
+    text-anchor="middle"
+  >AS</text>
+  <path d="M25 47h14" fill="none" stroke="#B65D45" stroke-linecap="round" stroke-width="2.5"/>
+</svg>
